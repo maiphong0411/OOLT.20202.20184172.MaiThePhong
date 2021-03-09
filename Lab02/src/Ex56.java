@@ -14,10 +14,17 @@ public class Ex56 {
 		}
 	
 		selectionSort(array);
-		
+		int sum = 0;
 		for (int i=0; i < length; i++) {
 			System.out.println(array[i]);
+			sum += array[i];
 		}
+		
+		System.out.println("Sum of array: " + sum);
+		System.out.println("Average of array: " + sum/length);
+
+		
+		
 	}
 	
 	public static void selectionSort(int[] arr){  
