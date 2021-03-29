@@ -81,10 +81,11 @@ public class MyDate {
                             + "[MMM d[,] yyyy]"
                             + "[MMMM d[,] yyyy]"
                             + "[ddMMyyyy]";
+            // create input by pattern
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
 
-            strDate = strDate.replaceAll("st|nd|rd|th", ""); // Regex for remove 'st', 'nd', 'rd', 'th' from day
-            LocalDate date = LocalDate.parse(strDate, formatter);
+            strDate = strDate.replaceAll("st|nd|rd|th", ""); // Regex for remove 'st', 'nd', 'rd', 'th' from day first second third fourth
+            LocalDate date = LocalDate.parse(strDate, formatter); // return date
             this.day = date.getDayOfMonth();
             this.month = date.getMonthValue();
             this.year = date.getYear();

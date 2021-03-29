@@ -24,7 +24,20 @@ public class Order {
     		System.out.println("Add successfully");
     	}
     	else {
-    		System.out.println("Array is fully");
+    		System.out.println("The DVD " + disc.getTitle() + " could not be added");
+    	}
+    }
+    
+    public void addDigitalVideoDisc (DigitalVideoDisc [] dvdList) {
+    	
+    	for (int i=0; i < dvdList.length; ++i ) {
+    		if (this.qtyOrdered < this.MAX_NUMBER_ORDERED) {
+        		this.itemsOrdered[this.qtyOrdered] = dvdList[i];
+        		this.qtyOrdered += 1;
+        		
+        	} else {
+        		System.out.println("The DVD " + dvdList[i].getTitle() + " could not be added");
+        	}
     	}
     }
     
