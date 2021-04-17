@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import hust.soict.hedspi.aims.dics.DigitalVideoDisc;
 import hust.soict.hedspi.aims.media.*;
 import hust.soict.hedspi.aims.utils.MyDate;
+import java.util.Scanner;
 
 public class Order {
 	
@@ -143,13 +144,39 @@ public class Order {
 
     
    // delete removeById(int id)
-    
+    public void removeById(int id) {
+    	Scanner sc = new Scanner(System.in);
+    	System.out.println("Enter type you want to remove(Book,CompactDisc,DigitalVideoDisc) ");
+    	String typeRemove = sc.next();
+    	switch (typeRemove) {
+    		case "Book":
+    			if(this.itemsOrderedBook.size() >= id) {
+    				this.itemsOrderedBook.remove(id - 1);
+    				System.out.println("Delete successfully");
+    			}	
+    			break;
+    		case "CompactDisc":
+    			if(this.itemsOrderedCD.size() >= id) {
+    				this.itemsOrderedCD.remove(id - 1);
+    				System.out.println("Delete successfully");
+    			}
+    			break;
+    		case "DigitalVideoDisc":
+    			if(this.itemsOrderedDVD.size() >= id) {
+    				this.itemsOrderedDVD.remove(id - 1);
+    				System.out.println("Delete successfully");
+    			}
+    			break;
+    	}
+    }
     public void print() {
     	System.out.println("***********************************Order***********************************");
         System.out.println("Ordered Items:");
         
         if (this.itemsOrderedBook.size() != 0) {
+        	int id = 1;
         	for(Book b: this.itemsOrderedBook) {
+        		System.out.println("ID: " + id++);
         		System.out.println("The title is " + b.getTitle());
         		System.out.println("The author is " + b.getAuthors());
         		System.out.println("The cost is " + b.getCost());
@@ -158,7 +185,9 @@ public class Order {
         }
         
         if (this.itemsOrderedCD.size() != 0) {
+        	int id = 1;
         	for(CompactDisc cd: this.itemsOrderedCD) {
+        		System.out.println("ID: " + id++);
         		System.out.println("The title is " + cd.getTitle());
         		System.out.println("The artist is " + cd.getArtist());
         		System.out.println("The cost is " + cd.getCost());
@@ -167,7 +196,9 @@ public class Order {
         }
         
         if (this.itemsOrderedDVD.size() != 0) {
+        	int id = 1;
         	for(DigitalVideoDisc dvd: this.itemsOrderedDVD) {
+        		System.out.println("ID: " + id++);
         		System.out.println("The title is " + dvd.getTitle());
         		System.out.println("The director is " + dvd.getDirector());
         		System.out.println("The cost is " + dvd.getCost());

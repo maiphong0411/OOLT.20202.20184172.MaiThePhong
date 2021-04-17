@@ -78,8 +78,7 @@ public class Aims {
 							}
 							System.out.println("Enter id of book: ");
 							int idBook = sc.nextInt();
-							int desiredId = idBook - 1;
-							order.addBook(storeBook.get(desiredId));
+							order.addBook(storeBook.get(idBook - 1));
 							break;
 							
 						case "CompactDisc":
@@ -99,12 +98,20 @@ public class Aims {
 							}
 							else if (choice == 0) break;
 							break;
-						
+						case "DigitalVideoDisc":
+							for(DigitalVideoDisc dvd: storeDVD) {
+								System.out.println("The title " + dvd.getTitle());
+							}
+							System.out.println("Enter id of DVD: ");
+							int idDvd = sc.nextInt();
+							order.addDVD(storeDVD.get(idDvd - 1));
+							break;
 					}
-					
 					break;
 				case 3:
-					
+					System.out.println("Enter id to remove: ");
+					int idRemove = sc.nextInt();
+					order.removeById(idRemove);
 					break;
 				case 4:
 					order.print();
