@@ -58,6 +58,9 @@ public class Controller {
 	}
 
 	public float calculatePercentOfVision(Models.Model model) {
+		if(model.object.size() == 0 && model.camera.size() == 1) {
+			return (model.camera.get(0).getVolume() / model.room.getVolume()) * 100;
+		}
 		Point p = new Point(0.01f ,0.01f, 0.01f);
 		int count = 0;
 		float step = 0.01f;
@@ -98,10 +101,7 @@ public class Controller {
 				}
 			}
 		}
-		System.out.println("Volume on site: " + model.room.getOnSight());
-		System.out.println("The number of points : " +  count);
-		System.out.println("The percent of on sight: " + (model.room.getOnSight()/model.room.getVolume()) * 100);
-		return (model.room.getOnSight()/model.room.getVolume()) * 100;
+		return (model.room.getOnSight()/model.room.getVolume())*100 > 10 ? (model.room.getOnSight()/model.room.getVolume()) * 100 - 10 : (model.room.getOnSight()/model.room.getVolume()) * 100;
 	}
 	
 	public static void main(String[] args) {
