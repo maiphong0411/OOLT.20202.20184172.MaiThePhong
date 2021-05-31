@@ -1,3 +1,4 @@
+package Models;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,7 +12,15 @@ public class Room {
 	protected float getX;
 	protected float getY;
 	protected float volume;
+	protected int quantity;
+	public float onSight;
 	
+	public float getOnSight() {
+		return onSight;
+	}
+	public void setOnSight(float onSight) {
+		this.onSight = onSight;
+	}
 	public float getGetX() {
 		return getX;
 	}
@@ -24,7 +33,18 @@ public class Room {
 	public void setGetY(float getY) {
 		this.getY = getY;
 	}
-
+	public ArrayList<Point> getCoordinate() {
+		return coordinate;
+	}
+	public void setCoordinate(ArrayList<Point> coordinate) {
+		this.coordinate = coordinate;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	public float getWidth() {
 		return width;
 	}
@@ -43,8 +63,15 @@ public class Room {
 	public void setLength(float length) {
 		this.length = length;
 	}
+	public float getVolume() {
+		return volume;
+	}
+	public void setVolume(float volume) {
+		this.volume = volume;
+	}
 	
 	public Room() {
+		/*
 		if(this.coordinate.size() == 0) {
 			this.inputRoom();
 			try {
@@ -54,6 +81,7 @@ public class Room {
 				System.out.println(e.getMessage());
 			}
 		}
+		*/
 		
 	}
 	
@@ -111,10 +139,5 @@ public class Room {
 		System.out.println(r.height);
 		System.out.println(r.width);
 	}
-	public float getVolume() {
-		return volume;
-	}
-	public void setVolume(float volume) {
-		this.volume = volume;
-	}
+	
 }

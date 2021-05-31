@@ -1,5 +1,9 @@
-
+package Models;
 public class Object extends Room {
+	
+	public Object () {
+		
+	}
 	
 	public Object(Room r) {
 		if(this.coordinate.size() == 0) {
