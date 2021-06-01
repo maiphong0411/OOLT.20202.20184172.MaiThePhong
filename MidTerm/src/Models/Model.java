@@ -21,6 +21,20 @@ public class Model {
 		System.out.println("Create model successfully.");
 	}
 	
+	public int checkObject(ArrayList<Object> object) {
+		for(Object o: object) {
+			float check = MathUtity.calculateVolume(room.coordinate.get(0), room.coordinate.get(1), room.coordinate.get(2), o.getCoordinate().get(2));
+			if(check == 0) {
+				return 1;
+			}
+			else {
+				float check2 = MathUtity.calculateVolume(room.coordinate.get(4), room.coordinate.get(5), room.coordinate.get(6), o.getCoordinate().get(0));
+				return check2 == 0 ? 1 : 0;
+			}
+		}
+		return 0;
+	}
+	
 	public void readFile(String filename) {
 		try {
 			int line = 1;
@@ -108,6 +122,11 @@ public class Model {
 			o.height = o.getDistance(o.coordinate.get(0), o.coordinate.get(4));
 			o.volume = o.length * o.height * o.width;
 			System.out.println("Volume of object : " + o.volume);
+			if (this.checkObject(object) == 1) {
+				System.out.println("Object is suitable");
+			} else {
+				System.out.println("Object is not suitable");
+			}
 		}
 		
 		// information of camera
